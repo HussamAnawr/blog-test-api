@@ -37,6 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'accounts.apps.AccountsConfig',
+    'posts.apps.PostsConfig',
+    'drf_spectacular',
 ]
 
 MIDDLEWARE = [
@@ -121,3 +125,14 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL='accounts.CustomUser'
+
+# REST_FRAMEWORK = {
+#     "DEFAULT_PERMISSION_CLASSES": [
+#         'rest_framework.permission.AllowAny',
+#     ],
+# }
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
